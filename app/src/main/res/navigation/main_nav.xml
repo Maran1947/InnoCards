@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/cards">
+
+    <fragment
+        android:id="@+id/cards"
+        android:name="com.example.innocard.ui.fragments.CardsList"
+        android:label="Cards"
+        tools:layout="@layout/fragment_cards" >
+        <action
+            android:id="@+id/action_cards_to_createCard"
+            app:destination="@id/createCard" />
+        <action
+            android:id="@+id/action_cards_to_updateCard"
+            app:destination="@id/updateCard" />
+    </fragment>
+    <fragment
+        android:id="@+id/createCard"
+        android:name="com.example.innocard.ui.fragments.CreateCard"
+        android:label="Create Card"
+        tools:layout="@layout/fragment_create_card" >
+        <action
+            android:id="@+id/action_createCard_to_cards"
+            app:destination="@id/cards" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateCard"
+        android:name="com.example.innocard.ui.fragments.UpdateCard"
+        android:label="Update Card"
+        tools:layout="@layout/fragment_update_card" >
+        <action
+            android:id="@+id/action_updateCard_to_cards"
+            app:destination="@id/cards" />
+        <argument android:name="selectedCard"
+            app:argType="com.example.innocard.data.models.Card" />
+    </fragment>
+</navigation>
